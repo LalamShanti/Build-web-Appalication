@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Matteo Bruni">
+    <title>Register</title>
+
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+<div class="box">
+    <h1>Register</h1>
+    <form name = "myForm">
+        <div class="inputBox">
+            <label class="input" for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="type your name" required/>
+        </div>
+        <div class="inputBox">
+            <label class="input" for="mobileNumber">Mobile Number</label>
+            <input type="number" name="mobileNumber" id="mobileNumber" placeholder="mobile number" required/>
+        </div>
+        <div class="inputBox">
+            <label class="input" for="userName">User name</label>
+            <input type="text" name="userName" id="userName" placeholder="type your username" required/>
+        </div>   
+        <div class="inputBox">
+            <label class="input" for="userPassword">Password</label>
+            <input type="password" name="userPassword" id="userPassword" placeholder="type your password"
+                   required/>
+        </div>
+        <button type="submit" name="" style="float: left;" onclick="openPopup()">Register</button>
+        <div class="popup" id="popup">
+            <h1>Thank You!</h1>
+            <p>User Registered Successfully</p>
+            <button type="button" onclick="closePopup()">OK</button>
+        </div>
+        <a class="button" href="login.html" style="float: left;">Login</a>
+    </form>
+</div>
+
+<script>
+    
+    function openPopup(){ 
+        let popup = document.getElementById("popup");
+        let name = document.getElementById("name").value;
+        let mobileNumber = document.getElementById("mobileNumber").value;
+        let userName = document.getElementById("userName").value;
+        let userPassword = document.getElementById("userPassword").value;
+
+        if (name == ""){
+            alert("Please fill name")
+            return false
+        }
+        if ((mobileNumber == "") || (mobileNumber.length < 10)){
+            alert("Invaild Mobile number")
+            return false
+        }
+        if (userName == ""){
+            alert("please fill user name")
+            return false
+        }
+        if ((userPassword == "") || (userPassword.length <= 8)){
+            alert("Password should contain minimum 8 character");
+            return false
+        }
+
+        if ((name != "") || (mobileNumber != "") || (userName != "") || userPassword != ""){
+            alert("User Registered Successfully")
+            return false
+        }
+        popup.classList.add("open-popup")
+    
+    }
+
+    function closePopup(){
+        popup.classList.remove("open-popup");
+    }
+</script>
+
+</body>
+
+</html>
